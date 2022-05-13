@@ -1,9 +1,10 @@
 import { request } from "umi";
 
 export interface loginParams {
-  phone: String;
-  password: String
-  code: String
+  phone?: String;
+  password?: String;
+  code?: String;
+  token?: string;
 }
 
 /**
@@ -13,7 +14,6 @@ export interface loginParams {
 */
 export const handleLogin = (params: loginParams) => {
   console.log('params',params);
-
   return request('/api/login',{
     method: 'POST',
     params: params

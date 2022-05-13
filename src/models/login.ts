@@ -6,10 +6,6 @@ export interface loginState {
     userId: string
 }
 
-interface responseParam {
-  code: string;
-  message: string
-}
 interface loginModelType {
   namespace: 'login_info';
   state: loginState;
@@ -21,6 +17,23 @@ interface loginModelType {
   }
 }
 
+interface loginResponseProps {
+  code: number;
+  token: string;
+  data?: {
+    name: string;
+    userid: string
+  }
+}
+
+interface updateInfoParams {
+  type: string;
+  payload: {
+    username: string;
+    userId: string
+  }
+}
+
  const loginModel: loginModelType = {
    namespace: 'login_info',
    state: {
@@ -28,8 +41,8 @@ interface loginModelType {
     userId: ''
    },
    effects: {
-     *handleLogin({payload}: {payload: loginParams}, {call, put}: {call: (func:any, payload) => {}, put: any}):Generator {
-        const res = yield call(handleLogin, payload)
+     *handleLogin({payload}: {payload: loginParams}, {call, put}: {call: (func:any, payload:loginParams) => loginResponseProps, put: ({}:updateInfoParams) => void}) {
+        const res: loginResponseProps = yield call(handleLogin, payload)
         if(res.code === 0) {
           localStorage.setItem('token', res.token)
           const user_info = yield call(getUserInfo, {token: res.token})

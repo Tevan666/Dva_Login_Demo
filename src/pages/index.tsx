@@ -14,15 +14,15 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = (LoginProps) => {
   console.log(LoginProps,'LoginProps');
   const {dispatch , login_info} = LoginProps
-  const handleLogin = (values: loginParams) => {
-    dispatch({
+  const handleLogin = (values: loginParams):Promise<void> => {
+    return dispatch({
       type: 'login_info/handleLogin',
       payload: {
         phone: values.phone,
         password: values.password,
         code: values.code,
       }
-    })
+    });
   }
   return (
     <>

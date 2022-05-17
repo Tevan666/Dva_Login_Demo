@@ -13,7 +13,7 @@ Start the dev server,
 ```bash
 $ yarn start
 ```
-## git commit link
+## git commit lint
 
 feat：新功能（feature）
 

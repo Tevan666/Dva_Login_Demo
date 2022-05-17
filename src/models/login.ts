@@ -41,7 +41,7 @@ interface updateInfoParams {
     userId: ''
    },
    effects: {
-     *handleLogin({payload}: {payload: loginParams}, {call, put}: {call: (func:any, payload:loginParams) => loginResponseProps, put: ({}:updateInfoParams) => void}) {
+     *handleLogin(payload, {call, put}) {
         const res: loginResponseProps = yield call(handleLogin, payload)
         if(res.code === 0) {
           localStorage.setItem('token', res.token)
@@ -54,7 +54,7 @@ interface updateInfoParams {
               userId: user_info?.data?.userId
             }
           })
-          alert('hello',user_info.data.name)
+          alert('hello'+user_info.data.name)
         }else {
           alert('账号密码错误')
         }

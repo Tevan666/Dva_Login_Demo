@@ -1,5 +1,5 @@
 import { handleLogin, loginParams, getUserInfo } from '../service/login.service';
-import { Effect, ImmerReducer, Reducer, Subscription } from 'umi';
+import { Effect, ImmerReducer, history, Subscription } from 'umi';
 
 export interface loginState {
     username: string,
@@ -42,7 +42,7 @@ interface updateInfoParams {
    },
    effects: {
      *handleLogin(payload, {call, put}) {
-        const res: loginResponseProps = yield call(handleLogin, payload)
+        const res: loginResponseProps = yield call(handleLogin, payload.payload)
         if(res.code === 0) {
           localStorage.setItem('token', res.token)
           const user_info = yield call(getUserInfo, {token: res.token})
@@ -54,7 +54,7 @@ interface updateInfoParams {
               userId: user_info?.data?.userId
             }
           })
-          alert('hello'+user_info.data.name)
+          history.push('/graphin')
         }else {
           alert('账号密码错误')
         }

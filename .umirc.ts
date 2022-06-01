@@ -6,6 +6,8 @@ export default defineConfig({
   },
   routes: [
     { path: '/', component: '@/pages/index' },
+    { path: '/graphin', component: '@/pages/graphin/index' },
+
   ],
   fastRefresh: {},
   dva: {
@@ -13,6 +15,7 @@ export default defineConfig({
     hmr: true,
     lazyLoad: true,
   },
+  mfsu: {},
   webpack5: {},
   proxy: {
     '/api': {

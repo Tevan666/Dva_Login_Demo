@@ -23,6 +23,10 @@
   "dependencies": {
     "@ant-design/pro-form": "^1.67.3",
     "@ant-design/pro-layout": "^6.5.0",
+    "@antv/g6": "^4.6.4",
+    "@antv/graphin": "^2.6.6",
+    "@antv/graphin-components": "^2.4.0",
+    "@antv/graphin-icons": "^1.0.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "react": "17.x",

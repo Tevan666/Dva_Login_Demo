@@ -21,6 +21,14 @@ export default defineConfig({
     '/api': {
       'target': 'http://127.0.0.1:5500/',
       'changeOrigin': true,
+    },
+    '/s1': {
+      'target': 'https://s1.328888.xyz',
+      'changeOrigin': true,
+    },
+    '/s1.328888.xyz': {
+      'target': 'https://s1.328888.xyz',
+      'changeOrigin': true,
     }
   }
 });
